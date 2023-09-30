@@ -3,7 +3,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 const login = () => {
   const router = useRouter();
@@ -69,6 +69,7 @@ const login = () => {
       <Link className="mt-2" href={"/signup"}>
         Link to Signup
       </Link>
+      <Toaster />
     </div>
   );
 };
