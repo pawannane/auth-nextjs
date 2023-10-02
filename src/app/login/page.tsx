@@ -66,9 +66,10 @@ const login = () => {
       >
         {buttonDisabled ? "No Login":"Login here"}
       </button>
-      <Link className="mt-2" href={"/signup"}>
-        Link to Signup
+      <Link className="mt-2 text-blue-500" href={"/signup"}>
+        Link to Signup here
       </Link>
+      <p className="mt-2">Forgot your password? <Link className="text-blue-500" href={"/forgotpassword"}>Click here</Link></p>
       <Toaster />
     </div>
   );
