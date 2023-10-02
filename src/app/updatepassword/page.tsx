@@ -17,6 +17,9 @@ const UpdatePassword = () => {
 
   const handleSubmit = async() => {
     try {
+      if(password === "")
+        return toast.error("Password field cannot be empty!")
+    
       setLoading(true);
       const response = await axios.post("/api/users/updatepassword", {token, password});
       toast.success(response.data.message);
@@ -34,7 +37,7 @@ const UpdatePassword = () => {
       <h1 className='text-2xl mb-4'>{loading ? "Processing" : "Update Password"}</h1>
       <label htmlFor="password">Enter your new password</label>
       <input
-        className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline focus:border-gray-600"
+        className="p-2 border border-gray-300 rounded-lg mt-2 mb-4 focus:outline focus:border-gray-600"
         type="password"
         name="password"
         id="password"

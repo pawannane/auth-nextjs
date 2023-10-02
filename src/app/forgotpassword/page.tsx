@@ -10,10 +10,10 @@ const ForgotPassword = () => {
 
   const handlePassword = async() => {
     try {
-      setLoading(true);
       if(email === '') 
         return toast.error("Please enter your email");
-
+      
+      setLoading(true);
       const response = await axios.post("/api/users/forgotpassword", {email});
       toast.success(`Please check your email! ${response.data.message}`);
       setEmail("");
