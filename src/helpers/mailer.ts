@@ -1,11 +1,11 @@
 import User from "@/models/userModel";
-import bcryptjs from "bcryptjs"
-import nodemailer from "nodemailer"
+import nodemailer from "nodemailer";
+import jwt from "jsonwebtoken";
 
 export const sendEmail = async ({ email, emailType, userId }: any) => {
   try {
     // create a hashed token 
-    const hashedToken = await bcryptjs.hash(userId.toString(), 10);
+    const hashedToken = await jwt.sign(userId.toString(), userId.toString());
 
     if (emailType === "VERIFY") {
       await User.findByIdAndUpdate(userId,
