@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Link from 'next/link';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Verifyemail = () => {
   const [token, setToken] = useState("");
@@ -14,7 +15,7 @@ const Verifyemail = () => {
       setVerified(true);
     } catch (error: any) {
       setError(true);
-      console.log(error.response.data);
+      toast.error(error.response.data);
     }
   }
 
@@ -45,10 +46,11 @@ const Verifyemail = () => {
 
       {error && (
         <div>
-          <h2 className='text-2xl bg-red-500'>Error</h2>
+          <h2 className='text-2xl bg-red-500'>Error: Your email cannot be verified</h2>
         </div>
       )
       }
+      <Toaster />
     </div>
   )
 }

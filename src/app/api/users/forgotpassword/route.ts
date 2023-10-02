@@ -15,7 +15,6 @@ export async function POST(request: NextRequest) {
     if(!user) {
       return NextResponse.json({error: "User not found"}, {status: 400});
     }
-    console.log(user);
 
     // send mail for changing password
     await sendEmail({email, emailType: "RESET", userId: user._id});

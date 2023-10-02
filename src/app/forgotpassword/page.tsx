@@ -11,12 +11,14 @@ const ForgotPassword = () => {
   const handlePassword = async() => {
     try {
       setLoading(true);
+      if(email === '') 
+        return toast.error("Please enter your email");
+
       const response = await axios.post("/api/users/forgotpassword", {email});
-      console.log(response);
-      toast.success("Please check your email!");
+      toast.success(`Please check your email! ${response.data.message}`);
+      setEmail("");
     } catch (error: any) {
-      console.log(error.message);
-      toast.error(error.message);
+      toast.error(error.response.data.error);
     } finally {
       setLoading(false)
     }

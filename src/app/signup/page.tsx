@@ -19,12 +19,13 @@ const Signup = () => {
     try {
       setLoading(true);
       const response = await axios.post("/api/users/signup", user);
-      console.log("Signup success", response.data);
-      toast.success("Signup success");
-      router.push("/login");
+      setUser({username: "", email: "", password: ""});
+      toast.success(`Signup success, ${response.data.message}`);
+      setTimeout(() => {
+        router.push("/login");
+      }, 2500);
     } catch (error: any) {
-      console.log("Signup failed", error.message);
-      toast.error(error.message);
+      toast.error(error.response.data.error);
     } finally {
       setLoading(false);
     }

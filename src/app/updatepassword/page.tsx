@@ -19,12 +19,11 @@ const UpdatePassword = () => {
     try {
       setLoading(true);
       const response = await axios.post("/api/users/updatepassword", {token, password});
-      console.log(response.data);
       toast.success(response.data.message);
+      setPassword("");
       setUpdatedPassword(true);
     } catch (error: any) {
-      console.log(error.message);
-      toast.error(error.message);
+      toast.error(error.response.data.error);
     } finally {
       setLoading(false);
     }

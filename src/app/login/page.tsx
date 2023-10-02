@@ -18,16 +18,14 @@ const Login = () => {
     try {
       setLoading(true);
       const response = await axios.post("/api/users/login", user);
-      console.log("Login success", response.data);
-      toast.success("Login success");
+      toast.success(response.data.message);
+      setUser({ email: "", password: "" })
       router.push("/profile");
-    } catch (error:any) {
-      console.log("Login failed", error.message);
-      toast.error(error.message);
+    } catch (error: any) {
+      toast.error(error.response.data.error);
     } finally {
       setLoading(false);
     }
-
   };
 
   useEffect(() => {
@@ -64,7 +62,7 @@ const Login = () => {
         className="py-2 px-4 rounded-lg bg-black text-white hover:bg-slate-200 hover:text-black transition-all"
         onClick={onLogin}
       >
-        {buttonDisabled ? "No Login":"Login here"}
+        {buttonDisabled ? "No Login" : "Login here"}
       </button>
       <Link className="mt-2 text-blue-500" href={"/signup"}>
         Link to Signup here
