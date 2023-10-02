@@ -26,8 +26,8 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
       port: 465,
       secure: true,
       auth: {
-        user: 'pawannane23@gmail.com',
-        pass: 'lmwq ytmh iktg kowz',
+        user: process.env.NODEMAILER_USER,
+        pass: process.env.NODEMAILER_PASS,
       }
     });
 
