@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import toast, { Toaster }  from 'react-hot-toast'
 
-const profile = () => {
+const Profile = () => {
   const router = useRouter();
   const [data, setData] = useState("nothing");
 
@@ -38,4 +38,4 @@ const profile = () => {
   )
 }
 
-export default profile
+export default Profile

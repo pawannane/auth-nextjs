@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast';
 
-const updatePassword = () => {
+const UpdatePassword = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [token, setToken] = useState("");
@@ -57,4 +57,4 @@ const updatePassword = () => {
   )
 }
 
-export default updatePassword
+export default UpdatePassword

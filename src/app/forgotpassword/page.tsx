@@ -4,7 +4,7 @@ import axios from 'axios';
 import toast, {Toaster} from 'react-hot-toast';
 import Link from 'next/link';
 
-const forgotPassword = () => {
+const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -46,4 +46,4 @@ const forgotPassword = () => {
   )
 }
 
-export default forgotPassword
+export default ForgotPassword

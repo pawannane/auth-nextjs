@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
-const login = () => {
+const Login = () => {
   const router = useRouter();
   const [user, setUser] = useState({
     email: "",
@@ -75,4 +75,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
